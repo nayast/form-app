@@ -1,9 +1,9 @@
-
+import FormPage from "./Form"
 
 function App() {
   return (
     <div className="App">
-      <h1>лялялялял</h1>
+      <FormPage/>
     </div>
   );
 }
