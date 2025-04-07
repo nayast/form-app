@@ -4,14 +4,8 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      const l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
-        '/form-app/#' + l.pathname.split('/').slice(2).join('/')
-      );
+      sessionStorage.redirect = location.href;
+      location.replace('/form-app/index.html');
     </script>
   </head>
-  <body>
-    <h1>Redirecting...</h1>
-  </body>
 </html>
