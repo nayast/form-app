@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/form-app/static/js/main.065e5d32.js",
+    "main.js": "/form-app/static/js/main.86cbfb8f.js",
     "index.html": "/form-app/index.html",
-    "main.065e5d32.js.map": "/form-app/static/js/main.065e5d32.js.map"
+    "main.86cbfb8f.js.map": "/form-app/static/js/main.86cbfb8f.js.map"
   },
   "entrypoints": [
-    "static/js/main.065e5d32.js"
+    "static/js/main.86cbfb8f.js"
   ]
 }
