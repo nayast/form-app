@@ -1,6 +1,6 @@
 {
   "name": "form",
-  "homepage": "http://nayast.github.io/form-app",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,15 +20,15 @@
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.5.0",
     "react-scripts": "5.0.1",
+    "serve": "^14.2.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set PUBLIC_URL=. && react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

@@ -59,9 +59,12 @@ const FillForm = () => {
         Дата: event.Дата,
         timestamp: new Date().toISOString()
       };
-      
-      await setDoc(doc(db, 'registrations', Date.now().toString()), registrationData);
-      navigate('/registration-success');
+      const url = '/registration-success';
+      if (window.Telegram?.WebApp) {
+        window.Telegram.WebApp.openLink(url);
+      } else {
+        navigate(url);
+      }
     } catch (error) {
       console.error('Ошибка при регистрации:', error);
     }

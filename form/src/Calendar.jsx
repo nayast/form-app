@@ -38,7 +38,13 @@ const Calendar = () => {
   }, []);
 
   const handleRegister = (event) => {
-    navigate(`/fill-form?event=${encodeURIComponent(event.id)}`);
+    const url = `/fill-form?event=${encodeURIComponent(event.id)}`;
+    
+    if (window.Telegram?.WebApp) {
+      window.Telegram.WebApp.openLink(url);
+    } else {
+      navigate(url);
+    }
   };
 
   return (
