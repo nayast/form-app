@@ -39,7 +39,6 @@ const FillForm = () => {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           setEvent({ id: docSnap.id, ...docSnap.data() });
-          // Устанавливаем предоплату по умолчанию
           setFormData(prev => ({
             ...prev,
             Предоплата: docSnap.data().Стоимость || 0
