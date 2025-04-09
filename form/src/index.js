@@ -41,6 +41,12 @@ if (window.Telegram && window.Telegram.WebApp) {
 
 // Рендеринг приложения
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+if (window.Telegram?.WebApp) {
+  window.Telegram.WebApp.expand();
+  window.Telegram.WebApp.enableClosingConfirmation();
+}
+
 root.render(
   <React.StrictMode>
     <App />
