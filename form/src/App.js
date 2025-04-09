@@ -1,7 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Calendar from './Calendar';
 import FillForm from './FillForm';
 import RegistrationSuccess from './RegistrationSuccess';
+import Test from './Test';
+import { useEffect } from 'react';
 
 function App() {
   return (
