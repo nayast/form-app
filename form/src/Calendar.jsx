@@ -38,17 +38,12 @@ const Calendar = () => {
   }, []);
 
   const handleRegister = (event) => {
-    const url = `/fill-form?event=${encodeURIComponent(event.id)}`;
-    
-    if (window.Telegram?.WebApp) {
-      window.Telegram.WebApp.openLink(url);
-    } else {
-      navigate(url);
-    }
+    console.log("Current location: ",window.location)
+    navigate(`/fill-form?event=${encodeURIComponent(event.id)}`);
   };
 
   return (
-    <Box sx={{ p: 3, backgroundColor: '#f5f5f5' }}>
+    <Box sx={{ p: 3, backgroundColor: '#f5f5f5', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <Typography variant="h4" component="h1" gutterBottom sx={{ 
         color: '#333', 
         mb: 4,
@@ -59,30 +54,41 @@ const Calendar = () => {
         Календарь мероприятий
       </Typography>
 
-      <Grid container spacing={3}>
-        {events.map((event) => (
-          <Grid item xs={12} sm={6} md={4} lg={2.4} key={event.id}>
+      <Grid container spacing={3} justifyContent="center">
+        {events.filter(event => event.Мероприятие !== "null").
+          map((event) => (
+          
+          <Grid item key={event.id}>
             <Card sx={{ 
-              height: '100%', 
+              width: 300, 
+              height: 470, 
               display: 'flex', 
               flexDirection: 'column',
+              borderRadius: 2,
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              transition: 'box-shadow 0.3s ease',
               '&:hover': { boxShadow: '0 0 10px rgba(203, 173, 122, 0.5)' }
             }}>
               <CardMedia
                 component="img"
-                height="140"
+                sx={{
+                  height: '200px',
+                  objectFit: 'cover',
+                  borderTopLeftRadius: '8px',
+                  borderTopRightRadius: '8px'
+                }}
                 image={event.Изображение || '/placeholder.jpg'}
                 alt={event.Мероприятие}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h6">
+              <CardContent sx={{ flexGrow: 1, p: 2 }}>
+                <Typography variant="h6" sx={{ fontSize: '1rem', fontWeight: 'bold', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
                   {event.Мероприятие}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
                   Гид: {event.Гид}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {event.Место}
+                  Место: {event.Место}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Стоимость: {event.Стоимость} ₽
@@ -93,8 +99,10 @@ const Calendar = () => {
                 fullWidth 
                 sx={{ 
                   mt: 'auto', 
+                  py: 1,
                   backgroundColor: '#CBAD7A',
-                  '&:hover': { backgroundColor: '#b89d6a' }
+                  '&:hover': { backgroundColor: '#b89d6a' },
+                  borderTop: '1px solid #e0e0e0'
                 }}
                 onClick={() => {
                   setSelectedEvent(event);

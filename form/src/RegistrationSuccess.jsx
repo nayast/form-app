@@ -6,7 +6,7 @@ const RegistrationSuccess = () => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ textAlign: 'center', mt: 8 }}>
+    <Box sx={{ textAlign: 'center', mt: 8, backgroundColor:'white'}}>
       <Typography variant="h4" gutterBottom>
         Регистрация успешно завершена!
       </Typography>
